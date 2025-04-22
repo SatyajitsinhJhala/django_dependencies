@@ -1,0 +1,10 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Am I Eligible for Promotion</button>
+  </form>
+  
+  {% if result %}
+    <p>Eligible: <strong>{{ result }}</strong></p>
+  {% endif %}
+  
