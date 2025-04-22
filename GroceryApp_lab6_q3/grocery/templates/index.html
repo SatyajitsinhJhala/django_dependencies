@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Checklist</title>
+</head>
+<body>
+    <h3>Select Item:</h3>
+    <form method="post" action="/add_item/">
+        {% csrf_token %}
+        {% for item in items %}
+            <input type="checkbox" name="items" value="{{ item.id }}"> {{ item.name }}<br>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Add Item">
+    </form>
+</body>
+</html>
