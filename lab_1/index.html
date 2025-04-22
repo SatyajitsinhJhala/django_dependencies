@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Table</title>
+    <script src="jQuery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".button").click(function(){
+                $(".move").animate({left:"-=50px"},500);
+            })
+        })
+    </script>
+    <style>
+        .move{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 10vh;
+            position: relative;
+        }
+        .table{
+            font-size: 100px;
+            border-color: black;
+            border-width: 0.1vh;
+            border-style: solid;
+        }
+        .row1,.row3{
+            background-color: lightblue;
+        }
+        .row2{
+            background-color: lightgreen;
+        }
+        td{
+            padding: 10px;
+        }
+        img{
+            height:50vh;
+            width:50vh;
+        }
+        .buttons{
+            display: flex;
+            justify-content: center;
+        }
+        .button{
+            font-size: xx-large;
+            background-color: lightpink;
+            padding: 10px;
+            margin-top: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="move">
+        <table class="table">
+            <tr class="row1">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr class="row2">
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr class="row2">
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </table>
+
+        <img src="campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="car">
+    </div>
+
+    <div class="buttons">
+        <button class="button">Move Left</button>
+    </div>
+</body>
+</html>
