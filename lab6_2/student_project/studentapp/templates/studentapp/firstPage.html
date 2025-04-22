@@ -1,0 +1,19 @@
+<!-- templates/studentapp/firstPage.html -->
+<html>
+<head><title>First Page</title></head>
+<body>
+    <h2>Enter Details</h2>
+    <form method="POST">
+        {% csrf_token %}
+        Name: <input type="text" name="name" required><br><br>
+        Roll: <input type="text" name="roll" required><br><br>
+        Subject:
+        <select name="subject">
+            <option value="Maths">Maths</option>
+            <option value="Science">Science</option>
+            <option value="History">History</option>
+        </select><br><br>
+        <button type="submit">Go to Second Page</button>
+    </form>
+</body>
+</html>
