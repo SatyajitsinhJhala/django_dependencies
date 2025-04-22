@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="C:\Users\Hari Keshav Rajesh\Desktop\jQuery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".update").click(function(){
+                const bgColor = $(".bg-select").val()
+                $(".card").css("background-color",bgColor)
+
+                const font = $(".font-select").val()
+                $(".card").css("font-family",font)
+
+                const size = $(".size-select").val()
+                $(".card").css("font-size",size+"px")
+
+                const border = $('input[name="border"]:checked').val()
+                $(".card").css("border-style",border)
+
+                const greeting = $(".greeting").val()
+                $(".message").text(greeting)
+
+                if($(".show-image").is(":checked")){
+                    $(".card-image").show()
+                }
+                else{
+                    $(".card-image.hide()")
+                }
+            })
+        })
+    </script>
+    <style>
+        .main{
+            display: flex;
+            padding: 2vh;
+            justify-content: space-around;
+            width: 100wh;
+        }
+        .card{
+            background-color: yellow;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 25px;
+            border: 1vh solid black;
+            height: 50vh;
+            padding: 3vh;
+        }
+        .card-image{
+            height: 40vh;
+            width: 50vh;
+        }
+        .update{
+            border: .5vh solid black;
+            padding: 1vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+        <div class="controls">
+            <label>Choose a background color</label><br>
+            <select class="bg-select">
+                <option>Yellow</option>
+                <option>Blue</option>
+                <option>Pink</option>
+            </select><br><br>
+
+            <label>Choose a font:</label><br>
+            <select class="font-select">
+                <option>Verdana</option>
+                <option>Arial</option>
+                <option>Georgia</option>
+            </select><br><br>
+
+            <label>Specify a numeric font size</label>
+            <input type="number" class="size-select" value="25"><br><br>
+
+            <label>Choose a border style</label><br>
+            <input type="radio" name="border" value="none">None<br>
+            <input type="radio" name="border" value="double">Double<br>
+            <input type="radio" name="border" value="solid" checked>Solid<br><br>
+
+            <input type="checkbox" class="show-image" checked>Show image<br><br>
+
+            <label>Enter the greeting text below:</label><br>
+            <input type="text" class="greeting" value="Happy Birthday, and many more" style="width: 100%;">
+
+            <button class="update">Update</button>
+        </div>
+
+        <div class="card" id="card">
+            <div class="message">Happy Birthday, and many more</div>
+            <img class="card-image" src="C:\Users\Hari Keshav Rajesh\Desktop\campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="Birthday Cake">
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="C:\Users\Hari Keshav Rajesh\Desktop\jQuery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".bill").click(function(){
+                const quantity = $(".quantity").val()
+
+                let total = 0
+                $(".item:checked").each(function(){
+                    if($(this).val()==='mobile'){
+                        total+=10000*quantity
+                    }
+                    else{
+                        total+=40000*quantity
+                    }
+                })
+                const brand = $(".brand").val()
+
+                alert(`Brand: ${brand}\nThe total amount is ${total}`)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Order Form</h2>
+
+        <label>Brand</label><br>
+        <select class="brand">
+            <option>HP</option>
+            <option>Lenovo</option>
+            <option>DELL</option>
+        </select><br><br>
+
+        <label>Select Item(s):</label><br>
+        <label>Mobile</label>
+        <input type="checkbox" value="mobile" class="item"><br>
+        <label>Laptop</label>
+        <input type="checkbox" value="laptop" class="item"><br><br>
+
+        <label>Enter Quantity</label><br>
+        <input type="text" class="quantity" min="1" value="1">
+
+        <button class="bill">Produce Bill</button>
+    </div>
+</body>
+</html>

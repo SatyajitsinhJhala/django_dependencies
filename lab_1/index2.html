@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".opButton").click(function(){
+                const num1 = parseFloat($(".num1").val())
+                const num2 = parseFloat($(".num2").val())
+                const op = $(this).data("op")
+
+                if(isNaN(num1)||isNaN(num2)){
+                    alert("Enter valid numbers")
+                    return
+                }
+
+                let result;
+                switch(op){
+                    case '+': result = num1 + num2;break;
+                    case '-': result = num1 - num2;break;
+                    case '*': result = num1 * num2;break;
+                    case '/':
+                        if(num2==0){
+                            alert("Zero division is not allowed")
+                            return
+                        }
+                        result = num1/num2
+                }
+
+                $(".result").val(result)
+            })
+        })
+    </script>
+
+    <style>
+        input{
+            height: 3vh;
+        }
+        .calculator{
+            margin-top: 30vh;
+            display: flex;
+            justify-content: center;
+            gap: 2vh;
+        }
+        .resultArea{
+            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+            gap: 2vh;
+        }
+        .opButtons{
+            display: flex;
+            justify-content: center;
+            gap: 1vh;
+            margin-top: 5vh;
+        }
+        .opButton{
+            font-size: 3vh;
+            border-color: black;
+            border-width: 1vh;
+            border-style: solid;
+            padding: 1vh;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="num1" placeholder="Enter number 1">
+        <input type="text" class="num2" placeholder="Enter number 2">
+    </div>
+    <div class="opButtons">
+        <button class="opButton" data-op="+">+</button>
+        <button class="opButton" data-op="-">-</button>
+        <button class="opButton" data-op="*">*</button>
+        <button class="opButton" data-op="/">/</button>
+    </div>
+    <div class="resultArea">
+        <input type="text" class="result" placeholder="Result Box">
+    </div>
+</body>
+</html>
