@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CAPTCHA Check</title>
+</head>
+<body>
+    <h2>Enter CAPTCHA</h2>
+    <p><strong>CAPTCHA:</strong> <code>{{ captcha_text }}</code></p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="captcha_input" {% if disable_input %}disabled{% endif %} required>
+        <button type="submit" {% if disable_input %}disabled{% endif %}>Submit</button>
+    </form>
+
+    <p style="color: red;">{{ message }}</p>
+</body>
+</html>
