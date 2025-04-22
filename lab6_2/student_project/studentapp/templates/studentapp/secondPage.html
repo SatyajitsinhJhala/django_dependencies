@@ -1,0 +1,14 @@
+<!-- templates/studentapp/secondPage.html -->
+<html>
+<head><title>Second Page</title></head>
+<body>
+    <h2>Data from First Page</h2>
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Roll:</strong> {{ roll }}</p>
+    <p><strong>Subject:</strong> {{ subject }}</p>
+    
+    <form action="{% url 'first-page' %}">
+        <button type="submit">Back to First Page</button>
+    </form>
+</body>
+</html>
