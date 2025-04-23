@@ -1,0 +1,15 @@
+<h2>People in Company</h2>
+<form method="post">
+  {% csrf_token %}
+  Company Name: <input type="text" name="company"><br>
+  <input type="submit" value="Search">
+</form>
+
+{% if results %}
+  <ul>
+    {% for name, city in results %}
+      <li>{{ name }} lives in {{ city }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<a href="/">Back</a>
