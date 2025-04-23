@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIMPLE CALCULATOR</title>
+    <style>
+        #calculator{
+            background-color:orange;
+            border: 3px;
+            border-radius: 10px;
+        }
+        #display{
+            background-color: gray;
+            color: black;
+            border-radius: 5px;
+            width: 320px;
+            height: 200px;
+            padding: 10px;
+
+        }
+        .button{
+            background-color: beige;
+            height: 100px;
+            width: 150px;
+            border-radius: 5px;
+        }
+        table{
+            padding: 10px;
+        }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" disabled>
+        <table>
+            <tr><td ><button class="button">1</button></td><td ><button class="button">2</button></td><td ><button class="button">3</button></td><td ><button class="button">+</button></td></tr>
+            <tr><td ><button class="button">4</button></td><td ><button class="button">5</button></td><td ><button class="button">6</button></td><td ><button class="button">-</button></td></tr>
+            <tr><td ><button class="button">7</button></td><td ><button class="button">8</button></td><td ><button class="button">9</button></td><td ><button class="button">*</button></td></tr>
+            <tr><td ><button class="button">clear</button></td><td ><button class="button">0</button></td><td ><button class="button">=</button></td><td ><button class="button">/</button></td></tr>
+        </table>
+    </div>
+</body>
+<script>
+   $(document).ready(function(){
+    let expression='';
+    
+    $('.button').click(function(){
+        const value=$(this).text();
+        if(value==='='){
+            try{
+                expression=eval(expression).toString();
+            }catch{
+                expression='Error';
+            }
+            $('#display').val(expression);
+        }else if(value==='clear'){
+            expression='';
+            $('#display').val(expression);
+        }else{
+            expression+=value;
+            $('#display').val(expression);
+        }
+    });
+   });
+  </script>
+  
+</html>

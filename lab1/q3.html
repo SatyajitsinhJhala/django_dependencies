@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>The Birthday Card</title>
+    <style>
+        body{
+            display: flex;
+        }
+        #card{
+            height: 500px;
+            width: 400px;
+            border: solid;
+            border-radius: 10px;
+            font-size: 25px;
+            background-color: yellow;
+        }
+        #control{
+            font-family: Arial;
+            color: black;
+            
+        }
+        #box img{
+            height: 300px;
+            width: 300px;
+        }
+        textarea{
+            height: 200px;
+            width: 400px;
+            background-color: lightgray;
+        }
+    </style>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="controller">
+        <label>Choose a background color</label>
+        <select id="background-clr">
+            <option value="yellow">yellow</option>
+            <option value="green">green</option>
+            <option value="gray">gray</option>
+        </select>
+        <label>Choose a font</label>
+        <select id="font-fam">
+            <option value="Arial">arial</option>
+            <option value="Verdana">verdana</option>
+        </select>
+        <br><br>
+        <label>specify a numeric fontsize:
+            <input type="number" id="font-sz" value="25">
+        </label>
+        <br><br>
+        <label>Choose a border style: 
+            <input type="radio" name="border" value="none">none<br>
+            <input type="radio" name="border" value="double">double<br>
+            <input type="radio" name="border" value="solid" checked>solid
+        </label>
+        <label>
+            <input type="checkbox" id="default_img" checked>add the default picture
+        </label>
+        <br><br>
+        <label>Enter the greeting text below</label><br>
+
+        <textarea id="message" >Happy Birthday, and many more</textarea>
+        <br><br>
+        <button id="update_btn">Update</button>
+        <br><br>
+    </div>
+    <div id="card" style="align-content: center; align-items: center;">
+        <div id="greeting">Happy Birthday, and many more</div>
+        <div id="img_cnt">
+            <img src="my_image.png">
+        </div>
+    </div>
+<script>
+    $("#update_btn").click(function(){
+        $("#card").css('background-color',$("#background-clr").val());
+        $("#card").css('font-family',$("#font-fam").val());
+        $("#card").css('font-size',$('#font-sz').val()+'px');
+        $("#greeting").text($('#message').val());
+        let borderstlye=$('input[name="border"]:checked').val().toLowerCase;
+        $('#card').css('border','2px'+borderstlye+' black');
+        if ($("#default_img").is(':checked')){
+            $('#img_cnt').show();
+        } else{
+            $('#img_cnt').hide();
+        }
+    });
+</script>
+</body>
+</html>

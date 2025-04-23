@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Page</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+        label, select, input {
+            display: block;
+            margin: 10px 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <h2>Device Order Form</h2>
+
+    <div class="section">
+        <label>Select Brand:</label>
+        <select id="brand">
+            <option value="HP">HP</option>
+            <option value="Nokia">Nokia</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Apple">Apple</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <label>Select Devices:</label>
+        <input type="checkbox" class="device" value="mobile"> Mobile<br>
+        <input type="checkbox" class="device" value="laptop"> Laptop
+    </div>
+
+    <div class="section">
+        <label>Enter Quantity:</label>
+        <input type="number" id="qty" value="1" min="1">
+    </div>
+
+    <button id="billBtn">Produce Bill</button>
+
+    <script>
+        // Sample Prices
+        const prices = {
+            mobile: 10000,
+            laptop: 40000
+        };
+
+        $('#billBtn').click(function () {
+            let quantity = parseInt($('#qty').val());
+            let total = 0;
+
+            $('.device:checked').each(function () {
+                let device = $(this).val();
+                total += prices[device] * quantity;
+            });
+
+            if (total === 0) {
+                alert("Please select at least one device.");
+            } else {
+                alert("Total amount for selected brand is ₹" + total);
+            }
+        });
+    </script>
+
+</body>
+</html>
