@@ -4,5 +4,11 @@
         <li>{{ category.name }} - Visits: {{ category.num_visits }} - Likes: {{ category.num_likes }}</li>
     {% endfor %}
 </ul>
+<ul>
+<h2>pages</h2>
+    {% for page in pages %}
+        <li>{{ page.title }} - Visits: {{ page.views }} - URL: {{ page.url }}</li>
+    {% endfor %}
+</ul>
 <a href="{% url 'add-category' %}">Add Category</a> |
 <a href="{% url 'add-page' %}">Add Page</a>

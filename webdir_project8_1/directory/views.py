@@ -4,7 +4,9 @@ from .models import Category, Page
 
 def home(request):
     categories = Category.objects.all()
-    return render(request, 'directory/home.html', {'categories': categories})
+    pages = Page.objects.all()
+    return render(request, 'directory/home.html', {'categories': categories,'pages':pages})
+
 
 def add_category(request):
     if request.method == 'POST':
