@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search People</title>
+</head>
+<body>
+    <h2>Search People by Company</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h3>Results:</h3>
+        <ul>
+            {% for name, city in results %}
+                <li>{{ name }} - {{ city }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <br>
+    <a href="{% url 'insert_works' %}">Insert Data</a>
+</body>
+</html>
